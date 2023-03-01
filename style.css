@@ -1,0 +1,64 @@
+html,body{
+    height: 100%;
+}
+.play-ground{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    background-color: burlywood;
+    height: 100%;
+}
+
+.comp-selection{
+    display: flex;
+    background-color: black;
+    flex: 3;
+    transform: rotate(180deg);
+    flex-flow: row-reverse;
+    gap: 20px;
+    padding: 20px;
+}
+
+.result{
+    background-color: black;
+    flex: 1;
+}
+
+.player-selection{
+    display: flex;
+    background-color: black;
+    flex: 3;
+    gap: 20px;
+    padding: 20px;
+}
+
+.comp-rock, .player-rock{
+    background-image: url("./images/rock.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex: 1;
+    border-radius: 40%;
+}
+
+.comp-paper, .player-paper{
+    background-image: url("./images/paper.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex: 1;
+    border-radius: 40%;
+}
+
+
+.comp-scissors, .player-scissors{
+    background-image: url("./images/scissors.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex: 1;
+    border-radius: 40%;
+}
+
+.hov:hover{
+    border: 2px solid yellow;
+    transition: all .3s;
+    transform: scale(1.1);
+}
