@@ -67,7 +67,7 @@ function playRound(playerSelection, ComputerSelection) {
 }
 
 
-function game() {
+/* function game() {
     alert("Welcome to Rock Paper Scissors game!")
     let playerSelection;
     for(let i=0; i<5; i++){
@@ -79,7 +79,7 @@ function game() {
     }else{
         alert("YOU LOSE good luck next time...")
     }
-}
+} */
 
 
 
