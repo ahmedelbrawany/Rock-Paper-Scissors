@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>ROCK PAPER SCISSORS</title>
 </head>
 <body>
@@ -13,11 +13,11 @@
             <div class="comp-paper"></div>
             <div class="comp-scissors"></div>
         </div>
-        <div class="result"></div>
+        <div class="result">Player: 0 ----------- Computer: 0</div>
         <div class="player-selection">
-            <div class="player-rock hov"></div>
-            <div class="player-paper hov"></div>
-            <div class="player-scissors hov"></div>
+            <div data-value="rock" class="player-rock hov"></div>
+            <div data-value="paper" class="player-paper hov"></div>
+            <div data-value="scissors" class="player-scissors hov"></div>
         </div>
     </div>
 </body>

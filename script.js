@@ -85,4 +85,26 @@ function playRound(playerSelection, ComputerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
-game();
+
+let player_options = document.querySelectorAll(".hov")
+let result = document.querySelector('.result')
+
+function showOptions(){
+    player_options.forEach(option => option.style.display = 'block')
+}
+
+player_options.forEach(function (option) {
+    option.addEventListener('click', (e) => {
+        console.log(playRound(this['data-value'], getComputerSelection()));
+        // hide other unselected options 
+        player_options.forEach(function (other) {
+            if (other.getAttribute('data-value') != option.getAttribute('data-value'))
+                other.style.display = "none";
+
+        })
+        result.innerText = `Player: ${playerScore} ----------- Computer: ${computerScore}`;
+        setTimeout(showOptions, 1000);
+
+    })
+});
+

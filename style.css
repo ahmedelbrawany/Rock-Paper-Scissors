@@ -22,30 +22,40 @@ html,body{
 .result{
     background-color: black;
     flex: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .player-selection{
     display: flex;
     background-color: black;
+    justify-content: center;
     flex: 3;
     gap: 20px;
     padding: 20px;
+    transition: all .3s;
 }
 
 .comp-rock, .player-rock{
     background-image: url("./images/rock.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    flex: 1;
+    flex: 0 1 30%;
     border-radius: 40%;
+    transition: all .3s;
 }
 
 .comp-paper, .player-paper{
     background-image: url("./images/paper.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    flex: 1;
+    flex: 0 1 30%;
     border-radius: 40%;
+    transition: all .3s;
 }
 
 
@@ -53,12 +63,12 @@ html,body{
     background-image: url("./images/scissors.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    flex: 1;
+    flex: 0 1 30%;
     border-radius: 40%;
+    transition: all .3s;
 }
 
 .hov:hover{
     border: 2px solid yellow;
-    transition: all .3s;
     transform: scale(1.1);
 }
