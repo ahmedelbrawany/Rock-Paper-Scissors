@@ -13,6 +13,7 @@ html,body{
     display: flex;
     background-color: black;
     flex: 3;
+    justify-content: center;
     transform: rotate(180deg);
     flex-flow: row-reverse;
     gap: 20px;

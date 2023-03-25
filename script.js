@@ -88,23 +88,46 @@ let computerScore = 0;
 
 let player_options = document.querySelectorAll(".hov")
 let result = document.querySelector('.result')
+let computer_options = document.querySelectorAll(".comp")
 
-function showOptions(){
+function showPlayerOptions() {
     player_options.forEach(option => option.style.display = 'block')
 }
 
-player_options.forEach(function (option) {
-    option.addEventListener('click', (e) => {
-        console.log(playRound(this['data-value'], getComputerSelection()));
-        // hide other unselected options 
-        player_options.forEach(function (other) {
-            if (other.getAttribute('data-value') != option.getAttribute('data-value'))
-                other.style.display = "none";
+function showComputerOptions() {
+    computer_options.forEach(option => option.style.display = 'block')
+}
 
-        })
-        result.innerText = `Player: ${playerScore} ----------- Computer: ${computerScore}`;
-        setTimeout(showOptions, 1000);
+function hidePlayerUnselectedOptions(selectedOption) {
+    player_options.forEach(function (other) {
+        if (other.getAttribute('data-value') != selectedOption.getAttribute('data-value'))
+            other.style.display = "none";
 
     })
+}
+
+function hideComputerUnselectedOptions(selectedOption) {
+    computer_options.forEach(function (other) {
+        if (other.getAttribute('data-value') != selectedOption)
+            other.style.display = "none";
+
+    })
+}
+
+function game(playerOption) {
+    let computerOption = getComputerSelection();
+
+    let resultStr = `${playRound(playerOption.getAttribute('data-value'), computerOption)}\n
+                    Player: ${playerScore} ----------- Computer: ${computerScore}`;
+
+    result.innerText = resultStr;
+    hidePlayerUnselectedOptions(playerOption);
+    hideComputerUnselectedOptions(computerOption);
+
+    setTimeout(()=>{showComputerOptions(); showPlayerOptions();}, 1000);
+}
+
+player_options.forEach(function (option) {
+    option.addEventListener('click', (e)=>{game(option)})
 });
 
