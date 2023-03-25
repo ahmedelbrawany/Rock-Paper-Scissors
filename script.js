@@ -67,19 +67,6 @@ function playRound(playerSelection, ComputerSelection) {
 }
 
 
-/* function game() {
-    alert("Welcome to Rock Paper Scissors game!")
-    let playerSelection;
-    for(let i=0; i<5; i++){
-        playerSelection = getInput();
-        alert(playRound(playerSelection, getComputerSelection())+`\n Player: ${playerScore} \n computer: ${computerScore}`);
-    }
-    if(playerScore>computerScore){
-        alert("YOU WIN Congrats...");
-    }else{
-        alert("YOU LOSE good luck next time...")
-    }
-} */
 
 
 
@@ -114,17 +101,33 @@ function hideComputerUnselectedOptions(selectedOption) {
     })
 }
 
+function updateResult(newResult){
+    result.innerText = newResult + `\nPlayer: ${playerScore} ----------- Computer: ${computerScore}`;
+}
+
 function game(playerOption) {
     let computerOption = getComputerSelection();
 
-    let resultStr = `${playRound(playerOption.getAttribute('data-value'), computerOption)}\n
-                    Player: ${playerScore} ----------- Computer: ${computerScore}`;
+    let resultStr = playRound(playerOption.getAttribute('data-value'), computerOption);
 
-    result.innerText = resultStr;
+    updateResult(resultStr);
+
     hidePlayerUnselectedOptions(playerOption);
     hideComputerUnselectedOptions(computerOption);
 
     setTimeout(()=>{showComputerOptions(); showPlayerOptions();}, 1000);
+    if(computerScore==5){
+        resultStr = "YOU LOSE Computer WINS, Try agian";
+        updateResult(resultStr);
+        computerScore=0;
+        playerScore=0;
+    }
+    if(playerScore==5){
+        resultStr = "YOU WON the game Congratulations...";
+        updateResult(resultStr);
+        computerScore=0;
+        playerScore=0;
+    }
 }
 
 player_options.forEach(function (option) {
